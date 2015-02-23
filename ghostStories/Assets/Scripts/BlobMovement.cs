@@ -6,14 +6,14 @@ public class BlobMovement : MonoBehaviour {
 	public float walkRadius = 5f;			// the maximum radius a blob may travel
 	public float epsilon = 1f;				// error value to measure distance between current and target position
 
-	Transform player;
+	// Transform player;			// if blob wants to follow player or something
 	bool isMoving = false;			// is the blob moving? else stationary
 	Vector3 randomDir;				// a random direction to walk in
 	Vector3 targetPos;				// the final random target position
 	NavMeshAgent nav;
 
 	void Awake () {
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		// player = GameObject.FindGameObjectWithTag("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
 	}
 
