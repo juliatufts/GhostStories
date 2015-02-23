@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BlobMovement : MonoBehaviour {
 
-	public float walkRadius = 10f;			// the maximum radius a blob may travel
+	public float walkRadius = 5f;			// the maximum radius a blob may travel
 	public float epsilon = 1f;				// error value to measure distance between current and target position
 
 	Transform player;
@@ -18,9 +18,15 @@ public class BlobMovement : MonoBehaviour {
 	}
 
 	void Update () {
-		// nav.SetDestination(player.position);
+		// nav.SetDestination(player.position); 	// you are so popular *~*~*~
 
 		ChooseAction();
+	}
+
+	// Debugging, show the radius where the blob can walk
+	void OnDrawGizmos() {
+		Gizmos.color = Color.white;
+		Gizmos.DrawWireSphere(transform.position, walkRadius);
 	}
 
 	// should i stay or should i go, unh unh unh
@@ -53,7 +59,6 @@ public class BlobMovement : MonoBehaviour {
 		randomDir += transform.position;
 		NavMeshHit hit;
 		NavMesh.SamplePosition(randomDir, out hit, walkRadius, 1);
-		Debug.Log(hit.position);
 		return hit.position;
 	}
 }
