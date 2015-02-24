@@ -58,10 +58,9 @@ public class BlobGenerator : MonoBehaviour {
 			// random rotation
 			quat = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-			// random material will go here
-
 			// spawn that blob
 			GameObject newBlob = Instantiate (blob, pos, quat) as GameObject;
+
 			newBlob.transform.parent = blobs;
 		}
 	}
